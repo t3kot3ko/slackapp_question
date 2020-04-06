@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "slack-question"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1pvju84qc8y2e"
+s3_prefix = "slack-question"
+region = "ap-northeast-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+

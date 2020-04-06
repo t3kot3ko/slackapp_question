@@ -17,6 +17,13 @@ Resources:
       CodeUri: question/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Policies:
+        - Statement:
+          - Sid: PutItemToDDB
+            Effect: Allow
+            Action:
+              - dynamodb:PutItem
+            Resource: !GetAtt QuestionTable.Arn
       Environment:
         Variables:
           TABLE_NAME: !Ref QuestionTable
@@ -52,3 +59,6 @@ Outputs:
   SlackAppQuestionFunctionRole:
     Description: "Implicit IAM Role created for SlackAppQuestion function"
     Value: !GetAtt SlackAppQuestionFunctionRole.Arn
+  TableName:
+    Description: "ARN of table"
+    Value: !GetAtt QuestionTable.Arn
